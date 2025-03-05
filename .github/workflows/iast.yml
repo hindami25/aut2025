@@ -49,7 +49,7 @@ jobs:
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v4 # Ex: v4.0.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
       env:
-        SONAR_TOKEN: 2da562272bc773d08c17457a5c02275e1dcdab96
+        SONAR_TOKEN: 652b09b73d7cd83fd872e5f4557a1cd188bf5f0b
       with:
         args: >
           -Dsonar.organization=hindami25
