@@ -38,15 +38,19 @@ jobs:
       - name: Stop docker
         run: docker stop docker-apache
 
-  sast:
-    name: SonarQube Cloud
+  sast-sonarcloud:
+    name: SAST - SonarCloud
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-      with:
-        # Disabling shallow clones is recommended for improving the relevancy of reporting
-        fetch-depth: 0
-    - name: SonarQube Scan
-      uses: SonarSource/sonarqube-scan-action@v4 # Ex: v4.0.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
-      env:
-        SONAR_TOKEN: 2da562272bc773d08c17457a5c02275e1dcdab96
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SonarCloud Scanner
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          SONAR_TOKEN: 2da562272bc773d08c17457a5c02275e1dcdab96
+        with:
+          args: >
+            -Dsonar.organization=hindami25
+            -Dsonar.projectKey=hindami25_aut2025
