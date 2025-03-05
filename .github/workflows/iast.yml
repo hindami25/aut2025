@@ -39,7 +39,7 @@ jobs:
       - name: Stop docker
         run: docker stop docker-apache
 
-  dast:
+  sast:
     name: SonarQube Cloud
     runs-on: ubuntu-latest
     steps:
