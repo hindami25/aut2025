@@ -32,9 +32,8 @@ jobs:
       - name: ZAP Scan
         uses: hermanka/action-full-scan@master
         with:
-          artifact_name: zap-report
           target: ${{ env.URL }}
-          network_name: isolated
+          network_name: zap-isolated
 
       - name: Stop docker
         run: docker stop docker-apache
@@ -50,4 +49,4 @@ jobs:
     - name: SonarQube Scan
       uses: SonarSource/sonarqube-scan-action@v4 # Ex: v4.0.0, See the latest version at https://github.com/marketplace/actions/sonarcloud-scan
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_TOKEN: 2da562272bc773d08c17457a5c02275e1dcdab96
