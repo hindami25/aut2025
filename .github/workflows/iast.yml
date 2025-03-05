@@ -32,7 +32,7 @@ jobs:
       - name: ZAP Scan
         uses: hermanka/action-full-scan@master
         with:
-          artifact_name: zap_report
+          artifact_name: zap-report
           target: ${{ env.URL }}
           network_name: isolated
 
